@@ -4,7 +4,8 @@
   "info": {
     "singularName": "account",
     "pluralName": "accounts",
-    "displayName": "account"
+    "displayName": "account",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,14 +18,14 @@
     "email": {
       "type": "email"
     },
-    "password": {
-      "type": "password"
-    },
     "sessions": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::session.session",
       "mappedBy": "accounts"
+    },
+    "password": {
+      "type": "string"
     }
   }
 }
