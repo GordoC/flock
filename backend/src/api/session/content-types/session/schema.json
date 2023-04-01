@@ -35,6 +35,9 @@
       "relation": "manyToMany",
       "target": "api::account.account",
       "inversedBy": "sessions"
+    },
+    "icebreaker": {
+      "type": "text"
     }
   }
 }
