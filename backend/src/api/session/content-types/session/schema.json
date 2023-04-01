@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sessions",
+  "info": {
+    "singularName": "session",
+    "pluralName": "sessions",
+    "displayName": "session",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "course": {
+      "type": "string"
+    },
+    "longitude": {
+      "type": "text"
+    },
+    "latitude": {
+      "type": "text"
+    },
+    "time": {
+      "type": "time"
+    },
+    "description": {
+      "type": "text"
+    },
+    "groupSize": {
+      "type": "integer"
+    },
+    "accounts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::account.account",
+      "inversedBy": "sessions"
+    }
+  }
+}
