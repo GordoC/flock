@@ -25,7 +25,7 @@ function MainContainer() {
           tabBarInactiveTintColor: 'grey',
           tabBarShowLabel: false,
           tabBarStyle:{
-            borderRadius: "15px",
+            borderRadius: 15,
             backgroundColor:"#FFFFFF",
             bottom: "5%",
             height: "7%",
