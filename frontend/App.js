@@ -8,7 +8,7 @@ import NewSessions from './components/NewSessions';
 export default function App() {
 
   return (
-    <NewSessions/>
+      <NewSessions/>
   );
 }
 
