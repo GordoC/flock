@@ -66,10 +66,10 @@ export default function Map() {
             <MapView 
                 style={styles.map} 
                 initialRegion={{
-                    latitude: 37.78825,
-                    longitude: -122.4324,
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
+                    latitude: 49.2666656,
+                    longitude: -123.249999,
+                    latitudeDelta: 0.0722,
+                    longitudeDelta: 0.0221,
                 }}
                 provider={PROVIDER_GOOGLE}
                 onLongPress={(e) => {
@@ -77,8 +77,8 @@ export default function Map() {
                     setTempCoords({...e.nativeEvent.coordinate})
                     setMarkers([...markers, {
                         ...e.nativeEvent.coordinate,
-                        latitudeDelta: 0.0922,
-                        longitudeDelta: 0.0421
+                        latitudeDelta: 1,
+                        longitudeDelta: 1,
                     }])
                 }}
             >
