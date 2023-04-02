@@ -21,13 +21,14 @@ function MainContainer() {
       <Tab.Navigator
         initialRouteName={mapName}
         screenOptions={({ route }) => ({
+          headerShown: false,
           tabBarActiveTintColor: '#3172BA',
           tabBarInactiveTintColor: 'grey',
           tabBarShowLabel: false,
           tabBarStyle:{
             borderRadius: "15px",
             backgroundColor:"#FFFFFF",
-            bottom: "5%",
+            bottom: "3%",
             height: "7%",
             width: "90%",
             marginTop: "10%",
