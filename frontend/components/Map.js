@@ -43,11 +43,12 @@ export default function Map() {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421} ])
     })
-    const handlePress = async ({ longitude, latitude }) => {
-        await fetch(`http://localhost:1337/api/sessions?filters[longitude][$eq]=${longitude}&filters[latitude][$eq]=${latitude}`)
+    const handlePress = async (coords) => {
+        await fetch(`http://localhost:1337/api/sessions?filters[longitude][$eq]=${coords.longitude}&filters[latitude][$eq]=${coords.latitude}`)
         .then((res) => res.json())
         .then((data) => {
-            setCurrSessionInfo(data)
+            console.log(data.data[0].attributes)
+            setCurrSessionInfo(data.data[0].attributes)
             setShowSessionModal(true)
         })
     }
@@ -84,7 +85,7 @@ export default function Map() {
                 {
                     markers.map((coords, idx) => {
                         return <Marker key={idx} coordinate={coords} onPress={
-                            (e) => handlePress(...e.nativeEvent.coordinate)
+                            (e) => handlePress(e.nativeEvent.coordinate)
                         } />
                     })
                 }
