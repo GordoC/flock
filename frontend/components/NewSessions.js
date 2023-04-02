@@ -59,19 +59,28 @@ function NewSessions(props) {
                                     return (
                                         <View style={styles.format}>
                                             <Text style={styles.item}>{item.key}</Text>
+<<<<<<< HEAD
                                             <TextInput 
                                                 style={styles.input}
                                                 onChangeText={text => {
                                                     handleChange(item.key, text)
                                                 }} 
                                             />
+=======
+                                            <TextInput style={styles.input} />
+>>>>>>> ad4f1348ba90c426a3bc7620d395421bab0773ee
                                         </View>
                                     )
                             }}
                             style={styles.list}/>
                             <View style={styles.buttons}>
+<<<<<<< HEAD
                                 <Button title='Cancel' color='#B6CFED' onPress={() => setShow(false)}/>
                                 <Button title='Submit' color='#3172BA' onPress={() => handlePress()}/>
+=======
+                                <Button title='Cancel' color='#B6CFED' style={styles.cancelBtn}/>
+                                <Button title='Submit' color='#3172BA' style={styles.submitBtn}/>
+>>>>>>> ad4f1348ba90c426a3bc7620d395421bab0773ee
                             </View>
                         </View>
                     </View>
@@ -114,7 +123,11 @@ const styles = StyleSheet.create({
     location: {
         marginTop: 110,
         marginBottom: 10,
+<<<<<<< HEAD
         fontSize: 20
+=======
+        fontSize: 15
+>>>>>>> ad4f1348ba90c426a3bc7620d395421bab0773ee
     },
     input: {
         flex: 1,
@@ -128,7 +141,11 @@ const styles = StyleSheet.create({
         borderRadius: 30
     },
     buttons: {
+<<<<<<< HEAD
         
+=======
+        marginBottom: 25
+>>>>>>> ad4f1348ba90c426a3bc7620d395421bab0773ee
     }
 });
 

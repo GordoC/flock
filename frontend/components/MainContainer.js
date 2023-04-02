@@ -28,7 +28,7 @@ function MainContainer() {
           tabBarStyle:{
             borderRadius: 15,
             backgroundColor:"#FFFFFF",
-            bottom: "5%",
+            bottom: "3%",
             height: "7%",
             width: "90%",
             marginTop: "10%",
