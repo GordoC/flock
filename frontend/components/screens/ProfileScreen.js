@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
-import ProfileScreenBg from '../../assets/profileScreen.svg'
+import { View, StyleSheet, Image } from 'react-native';
 
 export default function ProfileScreen({ navigation }) {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <ProfileScreenBg style={styles.bg}/>
+            <Image source={require('../../assets/profileScreen.png')} />
         </View>
     );
 }

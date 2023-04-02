@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Landing from './components/auth/Landing';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import ProfileScreen from './components/screens/ProfileScreen';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -18,11 +19,12 @@ export default function App() {
   //   .then((data) => setMsg(data.data.id))
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Landing'>
-        <Stack.Screen name="Landing" component={Landing} options={{headerShown:false}} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ProfileScreen/>
+    // <NavigationContainer>
+    //   <Stack.Navigator initialRouteName='Landing'>
+    //     <Stack.Screen name="Landing" component={Landing} options={{headerShown:false}} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
   );
 }
 
