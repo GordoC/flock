@@ -73,8 +73,8 @@ function NewSessions(props) {
                             }}
                             style={styles.list}/>
                             <View style={styles.buttons}>
-                                <Button title='Cancel' color='#B6CFED' onPress={() => setShow(false)}/>
-                                <Button title='Submit' color='#3172BA' onPress={() => handlePress()}/>
+                                <Button title='Cancel' color='#B6CFED' style={styles.cancelBtn} onPress={() => setShow(false)}/>
+                                <Button title='Submit' color='#3172BA' style={styles.submitBtn} onPress={() => handlePress()}/>
                             </View>
                         </View>
                     </View>

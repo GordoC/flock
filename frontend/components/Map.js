@@ -1,14 +1,16 @@
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { useState, useEffect } from 'react';
 import { StyleSheet, View, Alert } from 'react-native';
-import { SearchBar } from './SearchBar'
 import NewSessions from './NewSessions';
 import { io } from 'socket.io-client'
+import SessionModal from './SessionModal';
 
 export default function Map() {
     const [ markers, setMarkers ] = useState([])
     const [ showModal, setShowModal ] = useState(false)
     const [ tempCoords, setTempCoords ] = useState({})
+    const [ currSessionInfo, setCurrSessionInfo ] = useState({})
+    const [ showSessionModal, setShowSessionModal ] = useState(false)
 
     useEffect(() => {
         fetch(`http://localhost:1337/api/sessions`, {
@@ -41,12 +43,25 @@ export default function Map() {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421} ])
     })
+    const handlePress = async ({ longitude, latitude }) => {
+        await fetch(`http://localhost:1337/api/sessions?filters[longitude][$eq]=${longitude}&filters[latitude][$eq]=${latitude}`)
+        .then((res) => res.json())
+        .then((data) => {
+            setCurrSessionInfo(data)
+            setShowSessionModal(true)
+        })
+    }
 
     return (
         <View>
             {showModal && (
                 <NewSessions coords={tempCoords} socket={socket} />
             )}
+            {
+                showSessionModal && (
+                    <SessionModal info={currSessionInfo} />
+                )
+            }
             <MapView 
                 style={styles.map} 
                 initialRegion={{
@@ -68,7 +83,9 @@ export default function Map() {
             >
                 {
                     markers.map((coords, idx) => {
-                        return <Marker key={idx} coordinate={coords} />
+                        return <Marker key={idx} coordinate={coords} onPress={
+                            (e) => handlePress(...e.nativeEvent.coordinate)
+                        } />
                     })
                 }
             </MapView>
