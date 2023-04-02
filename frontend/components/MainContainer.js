@@ -21,6 +21,7 @@ function MainContainer() {
       <Tab.Navigator
         initialRouteName={mapName}
         screenOptions={({ route }) => ({
+          headerShown: false,
           tabBarActiveTintColor: '#3172BA',
           tabBarInactiveTintColor: 'grey',
           tabBarShowLabel: false,

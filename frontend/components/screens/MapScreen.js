@@ -1,12 +1,9 @@
-import * as React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import Map from '../Map'
 
 export default function MapScreen({ navigation }) {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text
-                onPress={() => navigation.navigate('Map')}
-                style={{ fontSize: 26, fontWeight: 'bold' }}>Map Screen</Text>
-        </View>
+        <Map />
     );
 }
