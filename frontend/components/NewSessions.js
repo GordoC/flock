@@ -2,14 +2,46 @@ import React, {useState} from 'react';
 import { StyleSheet, FlatList, Text, Modal, View, Button, TextInput } from 'react-native';
 import NewSessionBackground from '../assets/NewSessionnBackgroud.svg';
 
-function NewSessions(props: location) {
-    state = {
-        TextInputs: []
-    };
+function NewSessions(props) {
+    const [show, setShow] = useState(true)
+    const [submissionData, setSubmissionData] = useState({})
+
+    const handleChange = (key, value) => {
+        const newData = {
+            ...submissionData,
+        }
+
+        if (key === 'Group Size') {
+            newData['groupSize'] = value
+        } else {
+            newData[key.toLowerCase] = value
+        }
+        setSubmissionData(newData)
+    }
+
+    const handlePress = async () => {
+        const finalSubmission = {
+            ...submissionData
+        }
+        finalSubmission['longitude'] = props.coords.longitude
+        finalSubmission['latitude'] = props.coords.latitude
+
+        await fetch('http://localhost:1337/api/sessions', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(finalSubmission)
+        }).then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+        });
+        setShow(false)
+    }
+
     return(
         <View style={styles.page}>
-            <Text>idk</Text>
-            <Modal transparent={true} visible={true}>
+            <Modal transparent={true} visible={show}>
                 <View style={styles.outside}>
                     <View style={styles.modal}>
                         <NewSessionBackground style={styles.component}/>
@@ -27,14 +59,19 @@ function NewSessions(props: location) {
                                     return (
                                         <View style={styles.format}>
                                             <Text style={styles.item}>{item.key}</Text>
-                                            <TextInput style={styles.input} />
+                                            <TextInput 
+                                                style={styles.input}
+                                                onChangeText={text => {
+                                                    handleChange(item.key, text)
+                                                }} 
+                                            />
                                         </View>
                                     )
                             }}
                             style={styles.list}/>
                             <View style={styles.buttons}>
-                                <Button title='Cancel' color='#B6CFED'/>
-                                <Button title='Submit' color='#3172BA'/>
+                                <Button title='Cancel' color='#B6CFED' onPress={() => setShow(false)}/>
+                                <Button title='Submit' color='#3172BA' onPress={() => handlePress()}/>
                             </View>
                         </View>
                     </View>

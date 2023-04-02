@@ -2,6 +2,7 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SearchBar } from './SearchBar'
+import NewSessions from './NewSessions';
 
 export default function Map() {
     const [ markers, setMarkers ] = useState([{
@@ -10,9 +11,15 @@ export default function Map() {
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
     }])
+    const [ showModal, setShowModal ] = useState(false)
+    const [ tempCoords, setTempCoords ] = useState({})
+
 
     return (
         <View>
+            {showModal && (
+                <NewSessions coords={tempCoords} />
+            )}
             <MapView 
                 style={styles.map} 
                 initialRegion={{
@@ -23,6 +30,8 @@ export default function Map() {
                 }}
                 provider={PROVIDER_GOOGLE}
                 onLongPress={(e) => {
+                    setShowModal(true)
+                    setTempCoords({...e.nativeEvent.coordinate})
                     setMarkers([...markers, {
                         ...e.nativeEvent.coordinate,
                         latitudeDelta: 0.0922,
