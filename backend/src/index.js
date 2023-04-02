@@ -25,6 +25,10 @@ module.exports = {
   
     io.on('connection', socket => {
         console.log(socket.id);
+        socket.on("create-pin", (longitude, latitude) => {
+          console.log("HELLO WORLD!!!")
+          socket.broadcast.emit("receive-pin", longitude, latitude)
+        })
     });
   },
 };

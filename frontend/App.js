@@ -9,16 +9,6 @@ import MainContainer from './components/MainContainer';
 
 const Stack = createStackNavigator();
 export default function App() {
-  // const [msg, setMsg] = useState("blah");
-  // const socket = io("http://localhost:1337")
-  // socket.on("connect", () => {
-  //   setMsg("OKOK")
-  // })
-
-  // fetch("http://localhost:1337/api/accounts/2")
-  //   .then((resp) => resp.json())
-  //   .then((data) => setMsg(data.data.id))
-
   return (
     // <NavigationContainer>
     //   <Stack.Navigator initialRouteName='Landing'>
