@@ -4,7 +4,6 @@ import { StyleSheet, Text, View } from 'react-native';
 // import Landing from './components/auth/Landing';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import NewSessions from './components/NewSessions';
 import MainContainer from './components/MainContainer';
 
 const Stack = createStackNavigator();
