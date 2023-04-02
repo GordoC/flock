@@ -19,12 +19,11 @@ export default function App() {
   //   .then((data) => setMsg(data.data.id))
 
   return (
-    <ProfileScreen/>
-    // <NavigationContainer>
-    //   <Stack.Navigator initialRouteName='Landing'>
-    //     <Stack.Screen name="Landing" component={Landing} options={{headerShown:false}} />
-    //   </Stack.Navigator>
-    // </NavigationContainer>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Landing'>
+        <Stack.Screen name="Landing" component={Landing} options={{headerShown:false}} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
