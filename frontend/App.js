@@ -19,3 +19,10 @@ export default function App() {
     <MainContainer/>
   );
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
