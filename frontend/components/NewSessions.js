@@ -19,10 +19,11 @@ function NewSessions(props) {
         setSubmissionData(newData)
     }
 
+    // New pin
     const handlePress = async () => {
         const finalSubmission = {
             ...submissionData
-        }
+        } 
         finalSubmission['longitude'] = props.coords.longitude + ""
         finalSubmission['latitude'] = props.coords.latitude + ""
         console.log(finalSubmission);
