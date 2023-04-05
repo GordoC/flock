@@ -1,6 +1,6 @@
 # flock
 ## A platform for creating and joining study groups in-person to foster an immersive and engaging learning experience
-### Created for ProduHacks x EY (2023)
+### Created for UBC's ProduHacks x EY (2023)
 
 ### Figma
 https://www.figma.com/file/nVmtkXErcrOZcnVZACf2ow/Produhacks-2023?node-id=0%3A1&t=wv8C3sAKOrmVstPJ-1
